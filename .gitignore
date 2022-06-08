@@ -3,10 +3,10 @@
 # dependencies
 /venv
 /.vscode
+/__pycache__/*
 
 # testing
 /tests
-/__pycache__
 
 # production
 /build
