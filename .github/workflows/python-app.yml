@@ -31,7 +31,7 @@ jobs:
     - name: Run Mypy static type checker
       run: |
           # install types & check code (without imports)
-          mypy --install-types --non-interactive --show-error-codes --ignore-missing-imports back/app
+          mypy --install-types --non-interactive --show-error-codes --ignore-missing-imports .
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
