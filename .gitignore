@@ -1,16 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/venv
-/.vscode
-/__pycache__/*
-
-# testing
-/tests
-
-# production
-/build
+venv
+.vscode
 
 # misc
 *.mp3
-*.pdf
+
+# cache
+tests/__pycache__
+__pycache__
+.mypy_cache

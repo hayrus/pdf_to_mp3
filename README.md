@@ -9,7 +9,8 @@ converting pdf file to mp3 audio file
 
 Run:
 
-```python main.py
+```shell
+python main.py
 
 ```
 

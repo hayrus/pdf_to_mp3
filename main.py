@@ -7,7 +7,7 @@ from art import tprint
 import init_app
 
 
-def pdf_to_mp3(file_path: str, language: str) -> bool:
+def pdf_to_mp3(file_path: str, language: str) -> None:
     """ Convert pdf file to mp3. If successed - place mp3 file
     to spesific folder pointed in MP3_DIR from init_app
 
