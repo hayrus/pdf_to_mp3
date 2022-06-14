@@ -1,5 +1,4 @@
 import unittest
-from main import pdf_to_mp3, Path
 import main
 
 import mock
@@ -15,20 +14,20 @@ class TestMain(unittest.TestCase):
         Test with first parameter as bad path to pdf file
         """
 
-        pdf_file = Path(
+        pdf_file = main.Path(
             __file__).parent.resolve().joinpath("unknown.pdf")
         with self.assertRaises(FileNotFoundError):
-            pdf_to_mp3(pdf_file, "ru")
+            main.pdf_to_mp3(pdf_file, "ru")
 
     def test_bad_file_extension(self):
         """
         Test with first parameter as path to not a pdf file
         """
 
-        pdf_file = Path(
+        pdf_file = main.Path(
             __file__).parent.resolve().joinpath("test.ptf")
         with self.assertRaises(FileNotFoundError):
-            pdf_to_mp3(pdf_file, "ru")
+            main.pdf_to_mp3(pdf_file, "ru")
 
     @mock.patch("main.Path")
     def test_good_run(self, mock_Path):
