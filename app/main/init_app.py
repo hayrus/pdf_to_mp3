@@ -1,4 +1,4 @@
-MP3_DIR = "mp3_files"
+MP3_DIR = "app/mp3_files"
 
 
 def initialization():

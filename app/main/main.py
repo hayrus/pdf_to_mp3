@@ -4,7 +4,7 @@ from pathlib import Path
 from os import path
 from art import tprint
 
-import init_app
+import main.init_app as init_app
 
 
 def pdf_to_mp3(file_path: str, language: str) -> None:

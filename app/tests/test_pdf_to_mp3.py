@@ -1,5 +1,5 @@
 import unittest
-import main
+import main.main as main
 
 import mock
 
@@ -29,7 +29,7 @@ class TestMain(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             main.pdf_to_mp3(pdf_file, "ru")
 
-    @mock.patch("main.Path")
+    @mock.patch("main.main.Path")
     def test_good_run(self, mock_Path):
         """
         Test should be positive
