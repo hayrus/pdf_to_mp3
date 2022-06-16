@@ -1,7 +1,7 @@
 import unittest
-import main.main as main
+from app.main.prog import Path, pdf_to_mp3, gTTS, pdfplumber
 
-import mock
+from unittest.mock import Mock
 
 
 class TestMain(unittest.TestCase):
@@ -14,30 +14,47 @@ class TestMain(unittest.TestCase):
         Test with first parameter as bad path to pdf file
         """
 
-        pdf_file = main.Path(
+        pdf_file = Path(
             __file__).parent.resolve().joinpath("unknown.pdf")
         with self.assertRaises(FileNotFoundError):
-            main.pdf_to_mp3(pdf_file, "ru")
+            pdf_to_mp3(pdf_file, "ru")
 
     def test_bad_file_extension(self):
         """
         Test with first parameter as path to not a pdf file
         """
 
-        pdf_file = main.Path(
+        pdf_file = Path(
             __file__).parent.resolve().joinpath("test.ptf")
         with self.assertRaises(FileNotFoundError):
-            main.pdf_to_mp3(pdf_file, "ru")
+            pdf_to_mp3(pdf_file, "ru")
 
-    @mock.patch("main.main.Path")
-    def test_good_run(self, mock_Path):
+    def test_good_path_valid(self):
         """
-        Test should be positive
+        Test path is valid
         """
 
-        mock_Path("path_to_file").is_file.return_value = True
-        self.assertTrue(main.Path("path_to_file").is_file(),
+        Path = Mock()
+        Path("some file").is_file.return_value = True
+        result = Path("some file").is_file()
+
+        self.assertTrue(Path("some file").is_file.call_count == 1,
+                        "is_file() should be called once")
+
+        self.assertTrue(result,
                         "file 'path to file' should be present")
+
+    def test_good_gtts_save(self):
+        """
+        Test save audio file
+        """
+
+        gTTS = Mock()
+        my_audio = gTTS("text from pdf file", lang="en")
+        my_audio.save("audio file")
+
+        self.assertTrue(my_audio.save.call_count == 1,
+                        "is_file() should be called once")
 
 
 if __name__ == '__main__':

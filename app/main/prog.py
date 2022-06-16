@@ -4,7 +4,7 @@ from pathlib import Path
 from os import path
 from art import tprint
 
-import main.init_app as init_app
+from app.main.init_app import MP3_DIR, initialization
 
 
 def pdf_to_mp3(file_path: str, language: str) -> None:
@@ -33,12 +33,12 @@ def pdf_to_mp3(file_path: str, language: str) -> None:
 
     mp3_file_path = f"{Path(file_path).stem}.mp3"
     my_audio.save(
-        f"{path.join(init_app.MP3_DIR,mp3_file_path)}")
+        f"{path.join(MP3_DIR,mp3_file_path)}")
     print(f"done. Created file {mp3_file_path}")
 
 
 def main():
-    init_app.initialization()
+    initialization()
 
     tprint("PDF_TO_MP3", font='ComicSansMS')
     pdf_file = input("Input path to pdf file: ")
