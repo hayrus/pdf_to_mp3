@@ -1,5 +1,5 @@
 import unittest
-from app.main.prog import Path, pdf_to_mp3, gTTS, pdfplumber
+from app.main.prog import Path, pdf_to_mp3
 
 from unittest.mock import Mock
 
