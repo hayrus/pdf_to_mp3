@@ -24,7 +24,8 @@ def pdf_to_mp3(file_path: str, language: str) -> None:
 
     print("[*] Start converting pdf file...", end="", flush=True)
 
-    with pdfplumber.PDF(open(file=file_path, mode='rb')) as pdf:
+    file_stream = open(file=file_path, mode='rb')
+    with pdfplumber.PDF(file_stream) as pdf:
         pages = [page.extract_text() for page in pdf.pages]
 
     text = ''.join(pages).replace('\n', '')
